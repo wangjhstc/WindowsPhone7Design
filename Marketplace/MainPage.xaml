@@ -1,0 +1,178 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Marketplace.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controlsPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls"
+    xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SampleDataSource"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800">
+
+    <phone:PhoneApplicationPage.Resources>
+        <SampleData:SampleDataSource x:Key="SampleDataSource" d:IsDataSource="True"/>
+        <Style x:Key="MenuTextStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextExtraLargeStyle}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+            <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
+            <Setter Property="Margin" Value="0,0,0,21"/>
+        </Style>
+        <Style x:Key="PanoramaStyle" TargetType="controls:Panorama">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:Panorama">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <controlsPrimitives:PanningBackgroundLayer x:Name="BackgroundLayer" HorizontalAlignment="Left" Grid.RowSpan="2">
+                                <Border x:Name="background" Background="{TemplateBinding Background}" CacheMode="BitmapCache"/>
+                            </controlsPrimitives:PanningBackgroundLayer>
+                            <controlsPrimitives:PanningTitleLayer x:Name="TitleLayer" CacheMode="BitmapCache" ContentTemplate="{TemplateBinding TitleTemplate}" Content="{TemplateBinding Title}" FontSize="187" FontFamily="{StaticResource PhoneFontFamilyLight}" HorizontalAlignment="Left" Margin="10,-75,0,15" Grid.Row="0"/>
+                            <controlsPrimitives:PanningLayer x:Name="ItemsLayer" HorizontalAlignment="Left" Grid.Row="1">
+                                <ItemsPresenter x:Name="items"/>
+                            </controlsPrimitives:PanningLayer>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PanoramaItemStyle" TargetType="controls:PanoramaItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="controls:PanoramaItem">
+                        <Grid Background="{TemplateBinding Background}" Margin="12,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <ContentControl x:Name="header" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}" FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" Margin="12,-9,0,27">
+                                <ContentControl.RenderTransform>
+                                    <TranslateTransform x:Name="headerTransform"/>
+                                </ContentControl.RenderTransform>
+                            </ContentControl>
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Grid.Row="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="AllTextStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextExtraLargeStyle}">
+            <Setter Property="Margin" Value="10,36,0,0"/>
+            <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+            <Setter Property="LineHeight" Value="43"/>
+        </Style>
+        <DataTemplate x:Key="FeaturedItemTemplate">
+            <Grid Margin="0,0,0,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Height="99" Width="99" Margin="12,0,0,0" Fill="#FF292929"/>
+                <TextBlock FontFamily="Segoe WP Black"
+                           FontSize="38"
+                           Foreground="{StaticResource PhoneForegroundBrush}"
+                           Margin="12,-4,12,0"
+                           Text="{Binding Title}"
+                           TextWrapping="Wrap"
+                           LineStackingStrategy="BlockLineHeight" LineHeight="38"
+                           Grid.Column="1"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="FeaturedMusicItemTemplate">
+            <Grid Margin="0,0,12,12">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Height="99" Width="99" Margin="12,0,0,0" Fill="#FF292929"/>
+                <StackPanel Grid.Column="1">
+                    <TextBlock FontFamily="Segoe WP Black"
+                               FontSize="38"
+                               Foreground="{StaticResource PhoneForegroundBrush}"
+                               Margin="10,-4,12,-4"
+                               Text="{Binding Title}"
+                               TextWrapping="Wrap"
+                               LineStackingStrategy="BlockLineHeight" LineHeight="38"/>
+                    <TextBlock Style="{StaticResource PhoneTextNormalStyle}"
+                               Text="{Binding Subtitle}"
+                               LineStackingStrategy="BlockLineHeight"
+                               LineHeight="20"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+    
+    <phone:PhoneApplicationPage.DataContext>
+        <Binding Source="{StaticResource SampleDataSource}"/>
+    </phone:PhoneApplicationPage.DataContext>
+
+    <Grid x:Name="LayoutRoot">
+        <controls:Panorama Title="marketplace" Style="{StaticResource PanoramaStyle}">
+            <controls:Panorama.Background>
+                <ImageBrush ImageSource="PanoramaBackground.png" Opacity="0.35"/>
+            </controls:Panorama.Background>
+            
+            <controls:PanoramaItem>
+                <StackPanel Margin="12,0,0,0">
+                    <TextBlock Style="{StaticResource MenuTextStyle}" Text="apps"/>
+                    <TextBlock Style="{StaticResource MenuTextStyle}" Text="games"/>
+                    <TextBlock Style="{StaticResource MenuTextStyle}" Text="music"/>
+                    <TextBlock Style="{StaticResource MenuTextStyle}" Text="podcasts"/>
+                </StackPanel>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="apps" Style="{StaticResource PanoramaItemStyle}">
+                <StackPanel>
+                    <ItemsControl Margin="0,0,-12,0" ItemsSource="{Binding Apps}" ItemTemplate="{StaticResource FeaturedItemTemplate}"/>
+                    <TextBlock Style="{StaticResource AllTextStyle}" Text="all apps"/>
+                </StackPanel>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="games" Style="{StaticResource PanoramaItemStyle}">
+                <StackPanel>
+                    <ItemsControl Margin="0,0,-12,0" ItemsSource="{Binding Games}" ItemTemplate="{StaticResource FeaturedItemTemplate}"/>
+                    <TextBlock Style="{StaticResource AllTextStyle}" Text="all games"/>
+                </StackPanel>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="music" Style="{StaticResource PanoramaItemStyle}">
+                <StackPanel>
+                    <ItemsControl Margin="0,0,-12,0" ItemsSource="{Binding Music}" ItemTemplate="{StaticResource FeaturedMusicItemTemplate}"/>
+                    <TextBlock Style="{StaticResource AllTextStyle}" Text="all music"/>
+                </StackPanel>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem>
+                <StackPanel Margin="0,3,0,0">
+                    <TextBlock FontFamily="Segoe WP Black"
+                               FontSize="60"
+                               Foreground="{StaticResource PhoneForegroundBrush}"
+                               Margin="12,0,0,0"
+                               LineStackingStrategy="BlockLineHeight" LineHeight="60"
+                               Text="ABBY IN"/>
+                    <TextBlock FontFamily="Segoe WP Black"
+                               FontSize="60"
+                               Foreground="{StaticResource PhoneForegroundBrush}"
+                               Margin="12,-11,0,1"
+                               LineStackingStrategy="BlockLineHeight" LineHeight="60"
+                               Text="WONDERLAND"/>
+                    <Rectangle Height="99" Width="99" Margin="12,0,0,0" Fill="#FF292929" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </controls:PanoramaItem>
+        </controls:Panorama>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Opacity="0.65" BackgroundColor="Black" ForegroundColor="White">
+            <shell:ApplicationBarIconButton IconUri="/icons/appbar.feature.search.rest.png" Text="search"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
