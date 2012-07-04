@@ -15,7 +15,7 @@
     	<SampleData:SampleDataSource x:Key="SampleDataSource" d:IsDataSource="True"/>
         <DataTemplate x:Key="SettingItemTemplate">
             <StackPanel Margin="0,0,0,29">
-                <TextBlock Style="{StaticResource TextExtraLargeStyle}" Text="{Binding Name}" Margin="12,0,0,-1"/>
+                <TextBlock Style="{StaticResource TextExtraLargeStyle}" Text="{Binding Name}" Margin="12,0,0,0"/>
                 <TextBlock Style="{StaticResource TextSubtleStyle}" Text="{Binding Description}" Margin="12,0,0,0"/>
             </StackPanel>
         </DataTemplate>

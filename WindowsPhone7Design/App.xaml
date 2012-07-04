@@ -10,7 +10,7 @@
         <ResourceDictionary>
             <Style x:Key="TextBlockBase" BasedOn="{StaticResource PhoneTextBlockBase}" TargetType="TextBlock">
                 <Setter Property="TextOptions.TextHintingMode" Value="Animated"/>
-                <Setter Property="LineHeight" Value="24"/>
+                <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeMedium}"/>
                 <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
                 <Setter Property="RenderTransform">
                     <Setter.Value>
