@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace", "Marketplace\Marketplace.csproj", "{06FD60EF-0AF7-44EA-8060-EAE1D7CD1B62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsPhone7Design", "WindowsPhone7Design\WindowsPhone7Design.csproj", "{38881AED-61F6-4AB6-A21E-05165B6A5095}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{06FD60EF-0AF7-44EA-8060-EAE1D7CD1B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06FD60EF-0AF7-44EA-8060-EAE1D7CD1B62}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06FD60EF-0AF7-44EA-8060-EAE1D7CD1B62}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{38881AED-61F6-4AB6-A21E-05165B6A5095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38881AED-61F6-4AB6-A21E-05165B6A5095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38881AED-61F6-4AB6-A21E-05165B6A5095}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{38881AED-61F6-4AB6-A21E-05165B6A5095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38881AED-61F6-4AB6-A21E-05165B6A5095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38881AED-61F6-4AB6-A21E-05165B6A5095}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

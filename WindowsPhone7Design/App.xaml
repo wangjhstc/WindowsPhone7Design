@@ -1,0 +1,53 @@
+﻿<Application 
+    x:Class="WindowsPhone7Design.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TextBlockBase" BasedOn="{StaticResource PhoneTextBlockBase}" TargetType="TextBlock">
+                <Setter Property="TextOptions.TextHintingMode" Value="Animated"/>
+                <Setter Property="LineHeight" Value="24"/>
+                <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <TranslateTransform X="-1" Y="4"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="TextSubtleStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
+                <Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}"/>
+            </Style>
+            <Style x:Key="TextTitle1Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
+                <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}"/>
+                <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraExtraLarge}"/>
+                <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeExtraExtraLarge}"/>
+            </Style>
+            <Style x:Key="TextExtraLargeStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
+                <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}"/>
+                <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
+                <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
+            </Style>
+
+            <Style x:Key="ApplicationTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
+                <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
+                <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}"/>
+                <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeMedium}"/>
+            </Style>
+            <Style x:Key="PageTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource TextTitle1Style}">
+                <Setter Property="Margin" Value="10,11,0,0"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService 
+            Launching="Application_Launching" Closing="Application_Closing" 
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>
