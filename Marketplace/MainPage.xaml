@@ -5,9 +5,10 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:controlsPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls"
+    xmlns:common="clr-namespace:PhoneCommon.Controls;assembly=PhoneCommon"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controlsPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls"
     xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SampleDataSource"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -16,57 +17,19 @@
 
     <phone:PhoneApplicationPage.Resources>
         <SampleData:SampleDataSource x:Key="SampleDataSource" d:IsDataSource="True"/>
-        <Style x:Key="MenuTextStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextExtraLargeStyle}">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
-            <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
-            <Setter Property="Margin" Value="0,0,0,21"/>
-        </Style>
-        <Style x:Key="PanoramaStyle" TargetType="controls:Panorama">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="controls:Panorama">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <controlsPrimitives:PanningBackgroundLayer x:Name="BackgroundLayer" HorizontalAlignment="Left" Grid.RowSpan="2">
-                                <Border x:Name="background" Background="{TemplateBinding Background}" CacheMode="BitmapCache"/>
-                            </controlsPrimitives:PanningBackgroundLayer>
-                            <controlsPrimitives:PanningTitleLayer x:Name="TitleLayer" CacheMode="BitmapCache" ContentTemplate="{TemplateBinding TitleTemplate}" Content="{TemplateBinding Title}" FontSize="187" FontFamily="{StaticResource PhoneFontFamilyLight}" HorizontalAlignment="Left" Margin="10,-75,0,15" Grid.Row="0"/>
-                            <controlsPrimitives:PanningLayer x:Name="ItemsLayer" HorizontalAlignment="Left" Grid.Row="1">
-                                <ItemsPresenter x:Name="items"/>
-                            </controlsPrimitives:PanningLayer>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="PanoramaItemStyle" TargetType="controls:PanoramaItem">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="controls:PanoramaItem">
-                        <Grid Background="{TemplateBinding Background}" Margin="12,0,0,0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <ContentControl x:Name="header" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}" FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" Margin="12,-9,0,27">
-                                <ContentControl.RenderTransform>
-                                    <TranslateTransform x:Name="headerTransform"/>
-                                </ContentControl.RenderTransform>
-                            </ContentControl>
-                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Grid.Row="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <Style x:Key="AllTextStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextExtraLargeStyle}">
             <Setter Property="Margin" Value="10,36,0,0"/>
             <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
             <Setter Property="LineHeight" Value="43"/>
+        </Style>
+        <Style x:Key="AllLinkStyle" TargetType="common:Link">
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Style="{StaticResource AllTextStyle}" Text="{Binding}"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <DataTemplate x:Key="FeaturedItemTemplate">
             <Grid Margin="0,0,0,12">
@@ -114,42 +77,42 @@
     </phone:PhoneApplicationPage.DataContext>
 
     <Grid x:Name="LayoutRoot">
-        <controls:Panorama Title="marketplace" Style="{StaticResource PanoramaStyle}">
-            <controls:Panorama.Background>
+        <common:PanoramaEx Title="marketplace">
+            <!--<controls:Panorama.Background>
                 <ImageBrush ImageSource="PanoramaBackground.png" Opacity="0.35"/>
-            </controls:Panorama.Background>
+            </controls:Panorama.Background>-->
             
-            <controls:PanoramaItem>
-                <StackPanel Margin="12,0,0,0">
-                    <TextBlock Style="{StaticResource MenuTextStyle}" Text="apps"/>
-                    <TextBlock Style="{StaticResource MenuTextStyle}" Text="games"/>
-                    <TextBlock Style="{StaticResource MenuTextStyle}" Text="music"/>
-                    <TextBlock Style="{StaticResource MenuTextStyle}" Text="podcasts"/>
+            <common:PanoramaItemEx>
+                <StackPanel Margin="10,1,0,0">
+                    <common:Link Style="{StaticResource LinkExtraLargeStyle}" Content="apps" NavigateUri="/Marketplace;component/AppsPage.xaml"/>
+                    <common:Link Style="{StaticResource LinkExtraLargeStyle}" Content="games"/>
+                    <common:Link Style="{StaticResource LinkExtraLargeStyle}" Content="music"/>
+                    <common:Link Style="{StaticResource LinkExtraLargeStyle}" Content="podcasts"/>
                 </StackPanel>
-            </controls:PanoramaItem>
+            </common:PanoramaItemEx>
 
-            <controls:PanoramaItem Header="apps" Style="{StaticResource PanoramaItemStyle}">
+            <common:PanoramaItemEx Header="apps">
                 <StackPanel>
                     <ItemsControl Margin="0,0,-12,0" ItemsSource="{Binding Apps}" ItemTemplate="{StaticResource FeaturedItemTemplate}"/>
-                    <TextBlock Style="{StaticResource AllTextStyle}" Text="all apps"/>
+                    <common:Link Style="{StaticResource AllLinkStyle}" Content="all apps" NavigateUri="/AppsPage.xaml"/>
                 </StackPanel>
-            </controls:PanoramaItem>
+            </common:PanoramaItemEx>
 
-            <controls:PanoramaItem Header="games" Style="{StaticResource PanoramaItemStyle}">
+            <common:PanoramaItemEx Header="games">
                 <StackPanel>
                     <ItemsControl Margin="0,0,-12,0" ItemsSource="{Binding Games}" ItemTemplate="{StaticResource FeaturedItemTemplate}"/>
-                    <TextBlock Style="{StaticResource AllTextStyle}" Text="all games"/>
+                    <common:Link Style="{StaticResource AllLinkStyle}" Content="all games"/>
                 </StackPanel>
-            </controls:PanoramaItem>
+            </common:PanoramaItemEx>
 
-            <controls:PanoramaItem Header="music" Style="{StaticResource PanoramaItemStyle}">
+            <common:PanoramaItemEx Header="music">
                 <StackPanel>
                     <ItemsControl Margin="0,0,-12,0" ItemsSource="{Binding Music}" ItemTemplate="{StaticResource FeaturedMusicItemTemplate}"/>
-                    <TextBlock Style="{StaticResource AllTextStyle}" Text="all music"/>
+                    <common:Link Style="{StaticResource AllLinkStyle}" Content="all music"/>
                 </StackPanel>
-            </controls:PanoramaItem>
+            </common:PanoramaItemEx>
 
-            <controls:PanoramaItem>
+            <common:PanoramaItemEx>
                 <StackPanel Margin="0,3,0,0">
                     <TextBlock FontFamily="Segoe WP Black"
                                FontSize="60"
@@ -165,8 +128,8 @@
                                Text="WONDERLAND"/>
                     <Rectangle Height="99" Width="99" Margin="12,0,0,0" Fill="#FF292929" HorizontalAlignment="Left"/>
                 </StackPanel>
-            </controls:PanoramaItem>
-        </controls:Panorama>
+            </common:PanoramaItemEx>
+        </common:PanoramaEx>
     </Grid>
 
     <phone:PhoneApplicationPage.ApplicationBar>

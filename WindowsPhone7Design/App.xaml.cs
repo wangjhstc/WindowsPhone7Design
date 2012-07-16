@@ -119,6 +119,9 @@ namespace WindowsPhone7Design
             RootFrame = new PhoneApplicationFrame();
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
+            TextOptions.SetTextHintingMode(RootFrame, TextHintingMode.Animated);
+            TiltEffect.SetIsTiltEnabled(RootFrame, true);
+
             // Handle navigation failures
             RootFrame.NavigationFailed += RootFrame_NavigationFailed;
 

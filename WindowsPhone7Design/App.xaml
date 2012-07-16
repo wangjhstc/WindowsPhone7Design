@@ -8,6 +8,9 @@
     <!--Application Resources-->
     <Application.Resources>
         <ResourceDictionary>
+        	<ResourceDictionary.MergedDictionaries>
+        		<ResourceDictionary Source="/PhoneCommon;component/StandardStyles.xaml"/>
+        	</ResourceDictionary.MergedDictionaries>
             <Style x:Key="TextBlockBase" BasedOn="{StaticResource PhoneTextBlockBase}" TargetType="TextBlock">
                 <Setter Property="TextOptions.TextHintingMode" Value="Animated"/>
                 <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeMedium}"/>

@@ -1,0 +1,178 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:common="clr-namespace:PhoneCommon.Controls;assembly=PhoneCommon"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.AppsSampleDataSource" 
+    x:Class="Marketplace.AppsPage" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="800"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False">
+
+    <phone:PhoneApplicationPage.Resources>
+        <SampleData:AppsSampleDataSource x:Key="AppsSampleDataSource" d:IsDataSource="True"/>
+        <Style x:Key="MoreLinkStyle" TargetType="common:Link">
+            <Setter Property="Content" Value="more"/>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                   LineHeight="43" LineStackingStrategy="BlockLineHeight"
+                                   Margin="9,0,0,3"
+                                   Text="{Binding}"/>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
+    <phone:PhoneApplicationPage.DataContext>
+        <Binding Source="{StaticResource AppsSampleDataSource}"/>
+    </phone:PhoneApplicationPage.DataContext>
+
+    <phone:PhoneApplicationPage.FontFamily>
+        <StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+    </phone:PhoneApplicationPage.FontFamily>
+    <phone:PhoneApplicationPage.FontSize>
+        <StaticResource ResourceKey="PhoneFontSizeNormal"/>
+    </phone:PhoneApplicationPage.FontSize>
+    <phone:PhoneApplicationPage.Foreground>
+        <StaticResource ResourceKey="PhoneForegroundBrush"/>
+    </phone:PhoneApplicationPage.Foreground>
+
+    <Grid x:Name="LayoutRoot">
+        <common:PanoramaEx x:Name="Panorama" Title="apps marketplace" TitleMargin="15,-75,0,15"
+                          SelectionChanged="Panorama_SelectionChanged">
+            <common:PanoramaItemEx>
+                <StackPanel>
+                    <TextBlock FontFamily="Segoe WP Black"
+                               FontSize="81"
+                               Foreground="{StaticResource PhoneForegroundBrush}"
+                               Margin="11,0,0,-3"
+                               LineStackingStrategy="BlockLineHeight" LineHeight="81"
+                               Text="TALKBOX"/>
+                    <Rectangle Height="99" Width="99" Margin="12,0,0,0" Fill="{StaticResource PlaceholderBrush}" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </common:PanoramaItemEx>
+
+            <common:PanoramaItemEx Header="categories" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <ItemsControl ItemsSource="{Binding Categories}" Margin="0,9,0,72">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}"
+                                       LineHeight="43" LineStackingStrategy="BlockLineHeight"
+                                       Margin="22,0,0,24"
+                                       Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </common:PanoramaItemEx>
+
+            <common:PanoramaItemEx Header="new">
+                <Grid Margin="0,0,0,72">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ItemsControl Margin="0,9,-12,0" ItemsSource="{Binding New}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="-2,0,0,15">
+                                    <TextBlock Style="{StaticResource PhoneTextLargeStyle}"
+                                               FontSize="36"
+                                               LineHeight="36" LineStackingStrategy="BlockLineHeight"
+                                               Text="{Binding Name}"/>
+                                    <TextBlock Style="{StaticResource PhoneTextNormalStyle}"
+                                               LineHeight="24" LineStackingStrategy="BlockLineHeight"
+                                               Text="{Binding Publisher}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <common:Link Style="{StaticResource MoreLinkStyle}" Grid.Row="1"/>
+                </Grid>
+            </common:PanoramaItemEx>
+
+            <common:PanoramaItemEx Header="top">
+                <Grid Margin="0,0,0,72">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ItemsControl Margin="0,10,-12,0" ItemsSource="{Binding Top}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,12,12">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Rectangle Height="99" Width="99" Margin="12,0,0,0" Fill="#FF292929"/>
+                                    <StackPanel Grid.Column="1">
+                                        <TextBlock
+                                            FontFamily="Segoe WP Black"
+                                            FontSize="38"
+                                            Foreground="{StaticResource PhoneForegroundBrush}"
+                                            Margin="10,-4,12,-4"
+                                            Text="{Binding Name}"
+                                            TextWrapping="Wrap"
+                                            LineStackingStrategy="BlockLineHeight" LineHeight="38"/>
+                                        <TextBlock
+                                            Style="{StaticResource PhoneTextSmallStyle}"
+                                            Foreground="{StaticResource PhoneForegroundBrush}"
+                                            Text="{Binding Publisher}"
+                                            LineStackingStrategy="BlockLineHeight"
+                                            LineHeight="{StaticResource PhoneFontSizeSmall}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                    <common:Link Style="{StaticResource MoreLinkStyle}" Grid.Row="1"/>
+                </Grid>
+            </common:PanoramaItemEx>
+
+            <common:PanoramaItemEx x:Name="FeaturedItem" Header="featured" Orientation="Horizontal">
+                <ItemsControl MaxWidth="555" Margin="0,10,12,0" ItemsSource="{Binding Featured}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <toolkit:WrapPanel ItemWidth="185" ItemHeight="243"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Rectangle Height="173" Width="173" Margin="12,0,0,5" Fill="{StaticResource PlaceholderBrush}"/>
+                                <TextBlock
+                                    Style="{StaticResource PhoneTextNormalStyle}"
+                                    FontFamily="Segoe WP Black"
+                                    FontSize="17"
+                                    Foreground="{StaticResource PhoneForegroundBrush}"
+                                    Text="{Binding Name}"
+                                    TextWrapping="Wrap"
+                                    LineStackingStrategy="BlockLineHeight"
+                                    LineHeight="18"/>
+                                <TextBlock
+                                    Style="{StaticResource PhoneTextNormalStyle}"
+                                    FontSize="18"
+                                    Text="{Binding Comment}"
+                                    LineStackingStrategy="BlockLineHeight"
+                                    LineHeight="18"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </common:PanoramaItemEx>
+        </common:PanoramaEx>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Opacity="0.65" BackgroundColor="Black" ForegroundColor="White">
+            <shell:ApplicationBarIconButton IconUri="/icons/appbar.feature.search.rest.png" Text="search"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

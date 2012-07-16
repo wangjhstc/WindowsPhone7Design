@@ -6,12 +6,12 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Marketplace")]
+[assembly: AssemblyTitle("PhoneCommon")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Windows Phone 7 Design")]
-[assembly: AssemblyCopyright("Copyright © Yimeng Wu 2012")]
+[assembly: AssemblyCopyright("Copyright © Yiemng Wu 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,7 +21,7 @@ using System.Resources;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c17ba3df-6609-4e9c-9eb7-fb39450b3b7e")]
+[assembly: Guid("c064957f-ee8a-4510-9054-7cbb066e758f")]
 
 // Version information for an assembly consists of the following four values:
 //
