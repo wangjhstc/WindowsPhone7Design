@@ -18,6 +18,8 @@
     <SilverlightApplication>false</SilverlightApplication>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +48,7 @@
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>..\packages\SilverlightToolkitWP.4.2012.6.25\lib\sl4-windowsphone71\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Phone.Interop" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
@@ -57,14 +60,20 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MusicPage.xaml.cs">
+      <DependentUpon>MusicPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleData\MusicAndVideoHubSampleDataSource\MusicAndVideoHubSampleDataSource.xaml.cs">
       <DependentUpon>MusicAndVideoHubSampleDataSource.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\Album.cs" />
+    <Compile Include="ViewModels\MusicViewModel.cs" />
+    <Compile Include="ViewModels\Song.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <DesignTimeOnly Include="SampleData\MusicAndVideoHubSampleDataSource\MusicAndVideoHubSampleDataSource.xsd"/>
+    <DesignTimeOnly Include="SampleData\MusicAndVideoHubSampleDataSource\MusicAndVideoHubSampleDataSource.xsd" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="images\background.zune.oobe.png" />
@@ -73,6 +82,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MusicPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SampleData\MusicAndVideoHubSampleDataSource\MusicAndVideoHubSampleDataSource.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
@@ -84,6 +97,13 @@
       <Project>{0460E107-6F0E-4DAF-A67B-C1C46CAFA3ED}</Project>
       <Name>PhoneCommon</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\transport.play.43.rest.dark.png" />
+    <Resource Include="icons\transport.play.43.rest.light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\gradient.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

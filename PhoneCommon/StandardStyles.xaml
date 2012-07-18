@@ -8,20 +8,51 @@
     xmlns:local="clr-namespace:PhoneCommon.Controls">
 
     <SolidColorBrush x:Key="PlaceholderBrush" Color="#FF292929"/>
-    
+
     <Thickness x:Key="TileMargin">12,0,0,12</Thickness>
 
     <Style x:Key="LinkExtraLargeStyle" TargetType="local:Link">
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Style="{StaticResource PhoneTextExtraLargeStyle}"
+                    <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                               FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                               Margin="0,0,0,21"
                                LineHeight="43"
                                LineStackingStrategy="BlockLineHeight"
-                               Margin="0,0,0,21"
                                Text="{Binding}"/>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="TextBlockBase" BasedOn="{StaticResource PhoneTextBlockBase}" TargetType="TextBlock">
+        <Setter Property="LineHeight" Value="24"/>
+        <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+    </Style>
+
+    <Style x:Key="TextSubtleStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextSubtleStyle}">
+        <Setter Property="LineHeight" Value="24"/>
+        <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+    </Style>
+
+    <Style x:Key="TextTitle1Style" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextTitle1Style}">
+        <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeExtraExtraLarge}"/>
+        <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+    </Style>
+
+    <Style x:Key="TextExtraLargeStyle" TargetType="TextBlock" BasedOn="{StaticResource PhoneTextExtraLargeStyle}">
+        <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
+        <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+    </Style>
+
+    <Style x:Key="ApplicationTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
+        <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
+        <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}"/>
+        <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeMedium}"/>
+    </Style>
+    
+    <Style x:Key="PageTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource TextTitle1Style}">
+        <Setter Property="Margin" Value="10,11,0,0"/>
     </Style>
 </ResourceDictionary>

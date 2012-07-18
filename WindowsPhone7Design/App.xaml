@@ -10,39 +10,8 @@
         <ResourceDictionary>
         	<ResourceDictionary.MergedDictionaries>
         		<ResourceDictionary Source="/PhoneCommon;component/StandardStyles.xaml"/>
+        		<ResourceDictionary Source="ThemeResources/Dark/ThemeResources.xaml"/>
         	</ResourceDictionary.MergedDictionaries>
-            <Style x:Key="TextBlockBase" BasedOn="{StaticResource PhoneTextBlockBase}" TargetType="TextBlock">
-                <Setter Property="TextOptions.TextHintingMode" Value="Animated"/>
-                <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeMedium}"/>
-                <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <TranslateTransform X="-1" Y="4"/>
-                    </Setter.Value>
-                </Setter>
-            </Style>
-            <Style x:Key="TextSubtleStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
-                <Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}"/>
-            </Style>
-            <Style x:Key="TextTitle1Style" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
-                <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}"/>
-                <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraExtraLarge}"/>
-                <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeExtraExtraLarge}"/>
-            </Style>
-            <Style x:Key="TextExtraLargeStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
-                <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}"/>
-                <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
-                <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
-            </Style>
-
-            <Style x:Key="ApplicationTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource TextBlockBase}">
-                <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
-                <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}"/>
-                <Setter Property="LineHeight" Value="{StaticResource PhoneFontSizeMedium}"/>
-            </Style>
-            <Style x:Key="PageTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource TextTitle1Style}">
-                <Setter Property="Margin" Value="10,11,0,0"/>
-            </Style>
         </ResourceDictionary>
     </Application.Resources>
 

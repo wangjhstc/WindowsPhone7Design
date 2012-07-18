@@ -31,10 +31,20 @@
     </phone:PhoneApplicationPage.Foreground>
 
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <common:PanoramaEx Title="music+videos" SelectionChanged="Panorama_SelectionChanged">
+        <common:PanoramaEx Title="music+videos" SelectionChanged="Panorama_SelectionChanged" Background="{StaticResource DarkPhoneBackgroundBrush}" Foreground="{StaticResource DarkPhoneForegroundBrush}">
+            <common:PanoramaEx.TitleTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}">
+                        <TextBlock.Foreground>
+                            <ImageBrush ImageSource="images/gradient.png"/>
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                </DataTemplate>
+            </common:PanoramaEx.TitleTemplate>
+            
             <common:PanoramaItemEx Header="zune">
                 <StackPanel Margin="9,7,0,0">
-                    <common:Link Style="{StaticResource LinkExtraLargeStyle}" Content="music"/>
+                    <common:Link Style="{StaticResource LinkExtraLargeStyle}" Content="music" NavigateUri="/MusicAndVideo;component/MusicPage.xaml"/>
                     <common:Link Style="{StaticResource LinkExtraLargeStyle}" Content="videos"/>
                     <common:Link Style="{StaticResource LinkExtraLargeStyle}" Content="podcasts"/>
                     <common:Link Style="{StaticResource LinkExtraLargeStyle}" Content="radio"/>
@@ -76,7 +86,8 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="0,0,0,11">
                                 <Border Background="{StaticResource PlaceholderBrush}" Width="62" Height="62" Margin="12,0,-1,0"/>
-                                <TextBlock Style="{StaticResource PhoneTextTitle2Style}"
+                                <TextBlock FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                                           FontSize="{StaticResource PhoneFontSizeLarge}"
                                            LineHeight="32"
                                            LineStackingStrategy="BlockLineHeight"
                                            Text="{Binding Name}" Margin="12,19,12,0"/>
@@ -89,8 +100,11 @@
     </Grid>
     
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar BackgroundColor="Black" Opacity="0.5" StateChanged="ApplicationBar_StateChanged">
-            <shell:ApplicationBarIconButton IconUri="/icons/playmusic.png" Text="play music"/>
+        <shell:ApplicationBar BackgroundColor="{StaticResource DarkPhoneBackgroundColor}"
+                              ForegroundColor="{StaticResource DarkPhoneForegroundColor}"
+                              Opacity="0.5"
+                              StateChanged="ApplicationBar_StateChanged">
+            <shell:ApplicationBarIconButton IconUri="/icons/appbar.playmusic.rest.png" Text="play music"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="search marketplace"/>
             </shell:ApplicationBar.MenuItems>

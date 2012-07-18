@@ -83,6 +83,54 @@
         </Setter>
     </Style>
 
+    <Style TargetType="local:PivotEx">
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <Grid />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:PivotEx">
+                    <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}" 
+                          VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid 
+                            Grid.RowSpan="3" 
+                            Background="{TemplateBinding Background}" 
+                            CacheMode="BitmapCache"/>
+                        <ContentControl
+                            Content="{TemplateBinding Title}"
+                            Margin="23,16,0,-10"
+                            ContentTemplate="{TemplateBinding TitleTemplate}"
+                            FontFamily="{StaticResource PhoneFontFamilySemiBold}"
+                            FontSize="{StaticResource PhoneFontSizeMedium}"
+                            FontWeight="Bold"
+                            HorizontalContentAlignment="Stretch"
+                            VerticalContentAlignment="Stretch"/>
+                        <controlsPrimitives:PivotHeadersControl
+                            Grid.Row="1"
+                            x:Name="HeadersListElement"/>
+                        <ItemsPresenter
+                            Grid.Row="2"
+                            Margin="{TemplateBinding Padding}"
+                            x:Name="PivotItemPresenter"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="local:Tile">
         <Setter Property="Width" Value="173"/>
         <Setter Property="Height" Value="173"/>
@@ -103,6 +151,29 @@
                                    LineStackingStrategy="BlockLineHeight"
                                    Text="{TemplateBinding Title}"/>
                     </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:ThemeIconButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:ThemeIconButton">
+                    <Grid>
+                        <Image Source="{TemplateBinding DarkImageSource}" Stretch="None" Visibility="{StaticResource PhoneDarkThemeVisibility}"/>
+                        <Image Source="{TemplateBinding LightImageSource}" Stretch="None" Visibility="{StaticResource PhoneLightThemeVisibility}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:IconButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:IconButton">
+                    <Image Source="{TemplateBinding ImageSource}" Stretch="None"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

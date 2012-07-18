@@ -1,0 +1,168 @@
+<!--
+Copyright (c) Microsoft Corporation.  All rights reserved.
+-->
+
+<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:System="clr-namespace:System;assembly=mscorlib">
+
+  <!-- Common colors -->
+
+<!-- 100 percent White -->
+<Color x:Key="DarkPhoneForegroundColor">#FFFFFFFF</Color>
+
+<!-- 100 percent Black -->
+<Color x:Key="DarkPhoneBackgroundColor">#FF000000</Color>
+
+<!-- 100 percent Black -->
+<Color x:Key="DarkPhoneContrastForegroundColor">#FF000000</Color>
+
+<!-- 100 percent White -->
+<Color x:Key="DarkPhoneContrastBackgroundColor">#FFFFFFFF</Color>
+
+<!-- 40 percent White -->
+<Color x:Key="DarkPhoneDisabledColor">#66FFFFFF</Color>
+
+
+
+<!-- TextBox colors -->
+
+<!-- 100 percent Black -->
+<Color x:Key="DarkPhoneTextCaretColor">#FF000000</Color>
+
+<!-- 75 percent White -->
+<Color x:Key="DarkPhoneTextBoxColor">#BFFFFFFF</Color>
+
+<!-- 100 percent Black -->
+<Color x:Key="DarkPhoneTextBoxForegroundColor">#FF000000</Color>
+
+<!-- 100 percent White -->
+<Color x:Key="DarkPhoneTextBoxEditBackgroundColor">#FFFFFFFF</Color>
+
+<!-- 100 percent White -->
+<Color x:Key="DarkPhoneTextBoxEditBorderColor">#FFFFFFFF</Color>
+
+<!-- 47 percent percent Black -->
+<Color x:Key="DarkPhoneTextBoxReadOnlyColor">#77000000</Color>
+
+<!-- 60 percent White -->
+<Color x:Key="DarkPhoneSubtleColor">#99FFFFFF</Color>
+
+<!-- 100 percent White -->
+<Color x:Key="DarkPhoneTextBoxSelectionForegroundColor">#FFFFFFFF</Color>
+
+
+<!-- RadioButton and CheckBox colors -->
+
+<!-- 75 percent White -->
+<Color x:Key="DarkPhoneRadioCheckBoxColor">#BFFFFFFF</Color>
+
+<!-- 40 percent White -->
+<Color x:Key="DarkPhoneRadioCheckBoxDisabledColor">#66FFFFFF</Color>
+
+<!-- 100 percent Black -->
+<Color x:Key="DarkPhoneRadioCheckBoxCheckColor">#FF000000</Color>
+
+<!-- 40 percent Black -->
+<Color x:Key="DarkPhoneRadioCheckBoxCheckDisabledColor">#66000000</Color>
+
+<!-- 100 percent White -->
+<Color x:Key="DarkPhoneRadioCheckBoxPressedColor">#FFFFFFFF</Color>
+
+<!-- 100 percent White -->
+<Color x:Key="DarkPhoneRadioCheckBoxPressedBorderColor">#FFFFFFFF</Color>
+
+
+
+<!-- Special colors -->
+
+<!-- 66 percent transparent -->
+<Color x:Key="DarkPhoneSemitransparentColor">#AA000000</Color>
+
+<!-- System chrome color -->
+<Color x:Key="DarkPhoneChromeColor">#FF1F1F1F</Color>
+
+
+
+<!-- Deprecated colors -->
+
+<!-- 20 percent White -->
+<Color x:Key="DarkPhoneInactiveColor">#33FFFFFF</Color>
+
+<!-- Inverse inactive background color -->
+<Color x:Key="DarkPhoneInverseInactiveColor">#FFCCCCCC</Color>
+
+<!-- Inverse background color -->
+<Color x:Key="DarkPhoneInverseBackgroundColor">#FFFFFFFF</Color>
+
+<!-- 75 percent White -->
+<Color x:Key="DarkPhoneBorderColor">#BFFFFFFF</Color>
+
+
+
+<!-- Visibility -->
+<Visibility x:Key="DarkPhoneDarkThemeVisibility">Visible</Visibility>
+<Visibility x:Key="DarkPhoneLightThemeVisibility">Collapsed</Visibility>
+
+
+
+<!-- Opacity -->
+<System:Double x:Key="DarkPhoneDarkThemeOpacity">1</System:Double>
+<System:Double x:Key="DarkPhoneLightThemeOpacity">0</System:Double>
+
+<SolidColorBrush x:Key="DarkPhoneForegroundBrush" Color="{StaticResource DarkPhoneForegroundColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneBackgroundBrush" Color="{StaticResource DarkPhoneBackgroundColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneContrastForegroundBrush" Color="{StaticResource DarkPhoneContrastForegroundColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneContrastBackgroundBrush" Color="{StaticResource DarkPhoneContrastBackgroundColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneTextCaretBrush" Color="{StaticResource DarkPhoneTextCaretColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneTextBoxBrush" Color="{StaticResource DarkPhoneTextBoxColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneTextBoxForegroundBrush" Color="{StaticResource DarkPhoneTextBoxForegroundColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneTextBoxEditBackgroundBrush" Color="{StaticResource DarkPhoneTextBoxEditBackgroundColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneTextBoxEditBorderBrush" Color="{StaticResource DarkPhoneTextBoxEditBorderColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneTextBoxReadOnlyBrush" Color="{StaticResource DarkPhoneTextBoxReadOnlyColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneTextBoxSelectionForegroundBrush" Color="{StaticResource DarkPhoneTextBoxSelectionForegroundColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneSubtleBrush" Color="{StaticResource DarkPhoneSubtleColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneRadioCheckBoxBrush" Color="{StaticResource DarkPhoneRadioCheckBoxColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneRadioCheckBoxDisabledBrush" Color="{StaticResource DarkPhoneRadioCheckBoxDisabledColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneRadioCheckBoxCheckBrush" Color="{StaticResource DarkPhoneRadioCheckBoxCheckColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneRadioCheckBoxCheckDisabledBrush" Color="{StaticResource DarkPhoneRadioCheckBoxCheckDisabledColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneRadioCheckBoxPressedBrush" Color="{StaticResource DarkPhoneRadioCheckBoxPressedColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneRadioCheckBoxPressedBorderBrush" Color="{StaticResource DarkPhoneRadioCheckBoxPressedBorderColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneDisabledBrush" Color="{StaticResource DarkPhoneDisabledColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneSemitransparentBrush" Color="{StaticResource DarkPhoneSemitransparentColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneChromeBrush" Color="{StaticResource DarkPhoneChromeColor}"/>
+
+
+<!-- Deprecated brushes -->
+
+<SolidColorBrush x:Key="DarkPhoneInactiveBrush" Color="{StaticResource DarkPhoneInactiveColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneInverseInactiveBrush" Color="{StaticResource DarkPhoneInverseInactiveColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneInverseBackgroundBrush" Color="{StaticResource DarkPhoneInverseBackgroundColor}"/>
+
+<SolidColorBrush x:Key="DarkPhoneBorderBrush" Color="{StaticResource DarkPhoneBorderColor}"/>
+</ResourceDictionary>
+
+  
